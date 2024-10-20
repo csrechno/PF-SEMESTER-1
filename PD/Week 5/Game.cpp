@@ -21,17 +21,19 @@ void EraseEnemy3();
 void moveEnemy3();
 void printheader();
 void enter();
+int enemy1Direction=1;
+int enemy2Direction=1;
+int enemy3DirectionX=1;
+int enemy3DirectionY=1;
 int eX=2,eY=2;
-int ex=102,ey=8;
-int pX=60,pY=20;
-char e1Direction='R';
-char e2Direction='U';
-char e3Direction='D';
-int e1x=2,e1y=8;
+int ex=2,ey=8;
+int pX=40,pY=20;
+int e1x=100,e1y=4;
 main(){  
     system ("cls");  
       printheader();
-       enter();
+      cout<<"Press any key to enter:";
+getch();
         
          system("cls");
          Maze();
@@ -56,22 +58,14 @@ movePlayerUp();
 if(GetAsyncKeyState(VK_DOWN)){
 movePlayerDown();
 }
-if(eX==2)
-    e1Direction='R';
-if (eX==67)
-     e1Direction='L';
+
    moveEnemy();
- Sleep(50);
-if(ey==8)
-    e2Direction='D';
-if (ey==26)
-     e2Direction='U';
-   moveEnemy2();
-    Sleep(50);
-    if (e1x==2 && e1y==3)
-    e3Direction='D';
-    moveEnemy3();
-    Sleep(50);
+   Sleep(50);
+moveEnemy2();
+Sleep(50);
+moveEnemy3();
+Sleep(500);
+   
 }
 }
 void movePlayerLeft(){
@@ -192,18 +186,15 @@ gotoxy(eX,eY+5);
 cout<<"                               "<<endl;
 }
 void moveEnemy(){
-
-if (e1Direction=='R'){ 
-    EraseEnemy();
-    eX=eX+1;
-    PrintEnemy();
-     }
-     if (e1Direction=='L')
-     {
-        EraseEnemy();
-       eX=eX-1;
-       PrintEnemy();
-     }
+EraseEnemy();
+eX=eX+enemy1Direction;
+if(eX>=67){
+ enemy1Direction=-1;
+}
+if (eX<=2){
+  enemy1Direction=1;
+}
+PrintEnemy();
 }
 void PrintEnemy2()
 {
@@ -244,20 +235,18 @@ cout<<"                               "<<endl;
 }
 void moveEnemy2(){
 
-    if (e2Direction=='U'){ 
-    EraseEnemy2();
-    ey=ey-1;
-    PrintEnemy2();
-     }
-     if (e2Direction=='D')
-     {
-        EraseEnemy2();
-          ey=ey+1;
-       PrintEnemy2();
-     }
+   EraseEnemy2();
+ey=ey+enemy2Direction;
+if(ey>=26){
+ enemy2Direction=-1;
+}
+if (ey<=4){
+  enemy2Direction=1;
+}
+PrintEnemy2();
         
     
-    PrintEnemy2();
+  
 }
 void PrintEnemy3()
 {
@@ -298,13 +287,19 @@ cout<<"                               "<<endl;
 }
 void moveEnemy3(){
 
-if (e3Direction='D'){
-  EraseEnemy3();
-  e1x=e1x+1;
-  e1y=ey+1;
-  e1x=e1y+1; 
-   }  
-PrintEnemy3();               
+EraseEnemy3();
+e1x=e1x+enemy3DirectionX;
+e1y=e1y+enemy3DirectionY;
+if(e1x>=100){
+ enemy3DirectionX=-1;
+ enemy3DirectionY=1;
+}
+if (e1x<=82){
+  enemy3DirectionX=1;
+  enemy3DirectionY=-1;
+}
+
+   PrintEnemy3();               
 }
 
 
@@ -324,16 +319,7 @@ void printheader(){
  cout<<"        \\/                         \\/        \\/        \\/                        \\/      \\/      \\/            "<<endl;
 }
 
-void enter(){
-    cout<<"                                          " <<endl;
-   char enter;
-cout<<"                 Press any key to enter :         ";
-cin>>enter;
 
-
-getch;
-
-}
 
 void Maze(){
 
