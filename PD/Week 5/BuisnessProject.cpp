@@ -3,24 +3,42 @@
 #include <windows.h>
 using namespace std;
 void Menu ();
+void User_ID();
+void Admin_ID();
+void Employee_ID();
 void product();
-void Inventory();
- int choice=0;
+int choice=0;
+int Choice=0;
 void enter();
 void Loginpage();
-bool UserName();
+bool Login();
+bool Admin();
+bool Employee();
+bool User();
+void ProductManagement();
+void Cancel(int choice);
 main(){
 system("cls");
 Loginpage();
 
-if (UserName()){
-                     system("cls");
+if (Login()){ 
+  
+                    system("cls");
                      Menu ();
-                     enter();
+                     enter(); 
+       
 } 
 else
-{
-                     cout<<"Exiting the Program";
+{      
+               
+              while(true){   
+                      system("cls");
+                      Loginpage();
+                      Login();
+              }
+             
+                     
+                     
 }
  
 }
@@ -29,30 +47,105 @@ void enter(){
 
    cout<<"Enter your Choice:";
        cin>>choice;
-  
+
+  void Cancel(int choice);
+    
   if(choice==1){
-   cout<<"1-Add 1st product:"<<endl; 
-   cout<<"2- Add 2nd Product:"<<endl;
-   cout<<"3-Calculate Total:"<<endl;
+    system("cls");
+    Menu();
+    cout<<"Login As Admin:"<<endl;
+     if (Admin()){ 
+                    system("cls");
+                     Admin_ID();
+
+} 
+else
+{
+                     cout<<"Exiting the Program";
+            while(true){
+                     system("cls");
+                     Menu();
+                     enter();
+                     cout<<"Login As Admin:";
+                     Admin();
+            }
+               while(true){
+                Admin_ID();
+               }     
+                       
+}
+ 
+  }    
+   if(choice==2){
+    system("cls");
+    Menu();
+    cout<<"Login As Employee:"<<endl;
+     if (Employee()){ 
+                    system("cls");
+                   
+                     
+} 
+else
+{
+                     cout<<"Exiting the Program";
+                      while(true){
+                      system("cls");
+                      Menu();
+                      enter();
+                    cout<<"Login As Employee:";
+                     Employee();}
+}
+ 
+  }        
+  if(choice==3){
+    system("cls");
+    Menu();
+    cout<<"Login As User:"<<endl;
+     if (User()){ 
+                    system("cls");
+                    
+                       ProductManagement();
+} 
+else
+{
+                     cout<<"Exiting the Program";
+                       while(true){
+                      system("cls");
+                      Menu();
+                      enter();
+                    cout<<"Login As User:";
+                     User();}
+}
+  }
+  }        
+
+void  ProductManagement(){
+
+        User_ID();
+       cout<<"Enter your Choice:";
+       cin>>Choice;
+
+     if (Choice==1){                 
+   cout<<"1-Buy 1st product:"<<endl; 
+   cout<<"2-Buy 2nd Product:"<<endl;
+   cout<<"3-Total Bill:"<<endl;
    cout<<"4-View all Products data :"<<endl;
    cout<<"5-Exit the program:"<<endl;
 
      product();
      }
-       
-    if (choice==2){
-         Inventory();
-        }
-  
-}
+     if (Choice!=1){
+          system("cls");
+              Menu();
+              enter();
+     }
+     }
 
 
-void Inventory(){
 
-  cout<<"SAAD"<<endl;
- 
-}
-void product(){
+
+void product()
+{
 
 
 while(true){  
@@ -61,11 +154,11 @@ while(true){
      int option;
     cin>>option;
 
-  string nameof2ndproduct;
-  int quantityof2ndproduct,priceof2ndproduct;
+     string nameof2ndproduct;
+     int quantityof2ndproduct,priceof2ndproduct;
      string nameof1stproduct;
-    int quantityof1stproduct,priceof1stproduct;
- float total1,total2,totalPayable;
+     int quantityof1stproduct,priceof1stproduct;
+     float total1,total2,totalPayable;
    
     if (option==1){
     
@@ -108,18 +201,15 @@ cout<<"nameof2ndproduct"<<"\t\t"<<priceof2ndproduct<<"\t\t"<<quantityof2ndproduc
           }
 }
 if (option==5){
-cout<<"         "<<endl<<endl;
-        
-        system("cls");
-        Menu();
-       enter();
-       Inventory();
-       enter();
-    } 
+cout<<" Exiting the program        "<<endl<<endl;
+           system("cls");
+              Menu();
+              enter();
+    
+       
 }
-
 }
-  
+} 
 
 
 void Menu (){
@@ -130,10 +220,10 @@ cout<<"                  *******************************************************
 cout<<"                  *                 STORE MANAGEMENT SYSTEM                            *             "<<endl;
 cout<<"                  **********************************************************************             "<<endl;
 cout<<"                  **********************************************************************             "<<endl;
-cout<<"                  *                    1-Product Management                            *             "<<endl;
-cout<<"                  *                    2-Inventory Management                          *             "<<endl;
-cout<<"                  *                    3-Sales Management                              *             "<<endl;
-cout<<"                  *                    4-Basic reporting                               *             "<<endl;
+cout<<"                  *                    1-Login As Admin                                *             "<<endl;
+cout<<"                  *                    2-Login As Employee                             *             "<<endl;
+cout<<"                  *                    3-Login As User                                 *             "<<endl;
+cout<<"                  *                    4-(Don't Have An Account)  Sign up              *             "<<endl;
 cout<<"                  *                    5-Exiting the program                           *             "<<endl;
 cout<<"                  **********************************************************************           "  <<endl;
 
@@ -156,7 +246,7 @@ cout<<"                              \\/        \\/     \\/            "<<endl;
            
 }
 
-bool UserName(){
+bool Login(){
   string correctUsername="CS_RECHNO";
 string correctPassword="SaadCh12345";
 string username,password;
@@ -169,4 +259,80 @@ cin>>password;
     return true;
     } else { cout<<"Login unsuccessfull:"<<endl;
     return false;} 
+}
+bool Admin(){
+  string correctUsername="CS_RECHNO";
+string correctPassword="SaadCh12345";
+string username,password;
+cout<<"        Admin ID:";
+cin>>username;
+cout<<"            PASSWORD:";
+cin>>password;
+ if (username==correctUsername && password==correctPassword){
+    cout<<"Login Successful";
+    return true;
+    } else { cout<<"Login unsuccessfull:"<<endl;
+    return false;} 
+}
+bool Employee(){
+  string correctUsername="CS_RECHNO";
+string correctPassword="SaadCh12345";
+string username,password;
+cout<<"        Employee ID:";
+cin>>username;
+cout<<"            PASSWORD:";
+cin>>password;
+ if (username==correctUsername && password==correctPassword){
+    cout<<"Login Successful";
+    return true;
+    } else { cout<<"Login unsuccessfull:"<<endl;
+    return false;} 
+}
+bool User(){
+  string correctUsername="SaadAkhtar143";
+string correctPassword="SaadCh12345";
+string username,password;
+cout<<"        Sign Up : ";
+cin>>username;
+cout<<"        PASSWORD: ";
+cin>>password;
+ if (username==correctUsername && password==correctPassword){
+    cout<<"Login Successful";
+    return true;
+    } else { cout<<"Login unsuccessfull:"<<endl;
+    return false;} 
+}
+void User_ID(){
+
+
+cout<<"                  **********************************************************************             "<<endl;
+cout<<"                  **********************************************************************             "<<endl;
+cout<<"                  *                 STORE MANAGEMENT SYSTEM                            *             "<<endl;
+cout<<"                  **********************************************************************             "<<endl;
+cout<<"                  **********************************************************************             "<<endl;
+cout<<"                  *                    1-Product Management                            *             "<<endl;
+cout<<"                  **********************************************************************             "<<endl;
+}
+void Admin_ID(){
+
+
+cout<<"                  **********************************************************************             "<<endl;
+cout<<"                  **********************************************************************             "<<endl;
+cout<<"                  *                 STORE MANAGEMENT SYSTEM                            *             "<<endl;
+cout<<"                  **********************************************************************             "<<endl;
+cout<<"                  **********************************************************************             "<<endl;
+cout<<"                  *                    1-Inventory Management                          *             "<<endl;
+cout<<"                  **********************************************************************             "<<endl;
+}
+void Employee_ID(){
+
+
+cout<<"                  **********************************************************************             "<<endl;
+cout<<"                  **********************************************************************             "<<endl;
+cout<<"                  *                 STORE MANAGEMENT SYSTEM                            *             "<<endl;
+cout<<"                  **********************************************************************             "<<endl;
+cout<<"                  **********************************************************************             "<<endl;
+cout<<"                  *                    1-Sales Management                              *          "<<endl;
+cout<<"                  *                    2-Basic Reporting                               *             "<<endl;
+cout<<"                  **********************************************************************             "<<endl;
 }

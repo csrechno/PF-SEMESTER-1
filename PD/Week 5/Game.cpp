@@ -155,19 +155,13 @@ void PrintEnemy()
 {
 
 gotoxy(eX,eY);
-cout<<"          __________"<<endl;
+ cout << "  ______      " << endl;
 gotoxy(eX,eY+1);
-cout<<"        /           \\"<<endl;
+ cout << " /|_||_\\`.__   " << endl;
 gotoxy(eX,eY+2);
-cout<<"       /             \\"<<endl;
+ cout << "(   _    _ _\\   " << endl;
 gotoxy(eX,eY+3);
-cout<<" _____|_______________|_____"<<endl;
-gotoxy(eX,eY+4);
-cout<<"|     _   _  _  _  _  _   _  |"<<endl;
-gotoxy(eX,eY+5);
-cout<<"'--(_)---(_)---(_)---(_)---(_)'"<<endl;
-
-
+  cout << " =`-(_)--(_)-'   " << endl;
 
 }
 void EraseEnemy(){
@@ -180,10 +174,7 @@ gotoxy(eX,eY+2);
 cout<<"                          "<<endl;
 gotoxy(eX,eY+3);
 cout<<"                              "<<endl;
-gotoxy(eX,eY+4);
-cout<<"                               "<<endl;
-gotoxy(eX,eY+5);
-cout<<"                               "<<endl;
+
 }
 void moveEnemy(){
 EraseEnemy();
@@ -252,19 +243,13 @@ void PrintEnemy3()
 {
 
 gotoxy(e1x,e1y);
-cout<<"          __________"<<endl;
+cout<<"                ______      "<<endl;
 gotoxy(e1x,e1y+1);
-cout<<"        /           \\"<<endl;
+cout<<"            __.`/_||_|\\    "<<endl;
 gotoxy(e1x,e1y+2);
-cout<<"       /             \\"<<endl;
+cout<<"           /_ _    _   )     "<<endl;
 gotoxy(e1x,e1y+3);
-cout<<" _____|_______________|_____"<<endl;
-gotoxy(e1x,e1y+4);
-cout<<"|     _   _  _  _  _  _   _  |"<<endl;
-gotoxy(e1x,e1y+5);
-cout<<"'--(_)---(_)---(_)---(_)---(_)'"<<endl;
-
-
+cout<<"          '-(_)--(_)-`=      "<<endl;
 
 }
 void EraseEnemy3(){
@@ -294,7 +279,7 @@ if(e1x>=100){
  enemy3DirectionX=-1;
  enemy3DirectionY=1;
 }
-if (e1x<=82){
+if (e1x<=84){
   enemy3DirectionX=1;
   enemy3DirectionY=-1;
 }
