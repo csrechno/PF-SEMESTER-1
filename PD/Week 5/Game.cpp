@@ -46,25 +46,30 @@ while (true){
 
    movePlayerLeft();
 
+
 }
  if(GetAsyncKeyState(VK_RIGHT)){
 
 movePlayerRight();
+ 
 
 }
 if(GetAsyncKeyState(VK_UP)){
 movePlayerUp();
+ 
 }
 if(GetAsyncKeyState(VK_DOWN)){
 movePlayerDown();
+ 
 }
+moveEnemy();
 
-   moveEnemy();
-   Sleep(50);
+
 moveEnemy2();
-Sleep(50);
+
 moveEnemy3();
-Sleep(500);
+
+Sleep(100);
    
 }
 }
@@ -114,37 +119,29 @@ void PrintPlayer()
 {
 
 gotoxy(pX,pY);
-cout<<"          __________   "<<endl;
+cout<<"     ___            "<<endl;
 gotoxy(pX,pY+1);
-cout<<"        /           \\ "<<endl;
+cout<<"    ( o )          "<<endl;
 gotoxy(pX,pY+2);
-cout<<"       /             \\ "<<endl;
+cout<<"   (o\\./o)       "<<endl;
 gotoxy(pX,pY+3);
-cout<<" _____|_______________|_____ "<<endl;
-gotoxy(pX,pY+4);
-cout<<"|     _   _  _  _  _  _   _ | "<<endl;
-gotoxy(pX,pY+5);
-cout<<"'--(_)---(_)---(_)---(_)---(_)'"<<endl;
+cout<<"     " "           "<<endl;
+
 
 
 
 }
 
 void ErasePlayer(){
+
 gotoxy(pX,pY);
-cout<<"                          "<<endl;
+cout<<"                        "<<endl;
 gotoxy(pX,pY+1);
 cout<<"                        "<<endl;
 gotoxy(pX,pY+2);
 cout<<"                         "<<endl;
 gotoxy(pX,pY+3);
-cout<<"                             "<<endl;
-gotoxy(pX,pY+4);
-cout<<"                               "<<endl;
-gotoxy(pX,pY+5);
-cout<<"                                  "<<endl;
-
-
+cout<<"                         "<<endl;
 
 }
 
@@ -231,7 +228,7 @@ ey=ey+enemy2Direction;
 if(ey>=26){
  enemy2Direction=-1;
 }
-if (ey<=4){
+if (ey<=6){
   enemy2Direction=1;
 }
 PrintEnemy2();

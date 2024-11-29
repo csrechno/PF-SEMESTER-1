@@ -10,38 +10,22 @@ void product();
 int choice=0;
 int Choice=0;
 void enter();
-void Loginpage();
 bool Login();
 bool Admin();
 bool Employee();
 bool User();
 void ProductManagement();
 void Cancel(int choice);
+void Inventory();
 main(){
-system("cls");
-Loginpage();
 
-if (Login()){ 
-  
                     system("cls");
                      Menu ();
                      enter(); 
-       
-} 
-else
-{      
-               
-              while(true){   
-                      system("cls");
-                      Loginpage();
-                      Login();
-              }
-             
-                     
-                     
+                   
 }
  
-}
+
 
 void enter(){
 
@@ -56,7 +40,7 @@ void enter(){
     cout<<"Login As Admin:"<<endl;
      if (Admin()){ 
                     system("cls");
-                     Admin_ID();
+                     Inventory();
 
 } 
 else
@@ -69,9 +53,7 @@ else
                      cout<<"Login As Admin:";
                      Admin();
             }
-               while(true){
-                Admin_ID();
-               }     
+                  
                        
 }
  
@@ -82,7 +64,7 @@ else
     cout<<"Login As Employee:"<<endl;
      if (Employee()){ 
                     system("cls");
-                   
+                    Employee_ID();
                      
 } 
 else
@@ -93,7 +75,8 @@ else
                       Menu();
                       enter();
                     cout<<"Login As Employee:";
-                     Employee();}
+                      Employee();
+                     }
 }
  
   }        
@@ -229,37 +212,9 @@ cout<<"                  *******************************************************
 
 
 }
-void Loginpage(){
- 
-cout<<"             .____     ________   ________ .___ _______       "<<endl;
-cout<<"             |    |    \\_____ \\  /  _____/ |   |\\     \\    "<<endl;            
-cout<<"             |    |    /   |   \\/   \\  ___ |   |/   |  \\      "<<endl;
-cout<<"             |    |___/    |    \\    \\_\\  \\    /    |   \\     "<<endl;
-cout<<"             |______  \\_______  /\\______  / ___\\____|__ /     "<<endl;
-cout<<"                    \\/        \\/        \\/           \\/        "<<endl;
-cout<<"            __________   _____    ___________________         "<<endl;
-cout<<"            \\______   \\ /  _  \\  /  _____/\\_   _____/           "<<endl;
-cout<<"            |     ___  /  /_\\  \\/   \\  ___ |   __)_              "<<endl;
-cout<<"            |    |    /    |    \\    \\_\\  \\|       \\          "<<endl;
-cout<<"            |____|     \\___|__  /\\______  /____ ___/           "<<endl; 
-cout<<"                              \\/        \\/     \\/            "<<endl; 
-           
-}
 
-bool Login(){
-  string correctUsername="CS_RECHNO";
-string correctPassword="SaadCh12345";
-string username,password;
-cout<<"            USERNAME:";
-cin>>username;
-cout<<"            PASSWORD:";
-cin>>password;
- if (username==correctUsername && password==correctPassword){
-    cout<<"Login Successful";
-    return true;
-    } else { cout<<"Login unsuccessfull:"<<endl;
-    return false;} 
-}
+
+
 bool Admin(){
   string correctUsername="CS_RECHNO";
 string correctPassword="SaadCh12345";
@@ -275,8 +230,8 @@ cin>>password;
     return false;} 
 }
 bool Employee(){
-  string correctUsername="CS_RECHNO";
-string correctPassword="SaadCh12345";
+  string correctUsername="CS_REC";
+string correctPassword="SaadCh12";
 string username,password;
 cout<<"        Employee ID:";
 cin>>username;
@@ -325,8 +280,6 @@ cout<<"                  *                    1-Inventory Management            
 cout<<"                  **********************************************************************             "<<endl;
 }
 void Employee_ID(){
-
-
 cout<<"                  **********************************************************************             "<<endl;
 cout<<"                  **********************************************************************             "<<endl;
 cout<<"                  *                 STORE MANAGEMENT SYSTEM                            *             "<<endl;
@@ -335,4 +288,15 @@ cout<<"                  *******************************************************
 cout<<"                  *                    1-Sales Management                              *          "<<endl;
 cout<<"                  *                    2-Basic Reporting                               *             "<<endl;
 cout<<"                  **********************************************************************             "<<endl;
+}
+void Inventory(){
+  Admin_ID();
+   cout<<"Enter your Choice:";
+       cin>>Choice;
+
+        if (Choice=1){
+          system("cls");
+              Menu();
+              enter();
+     }
 }
