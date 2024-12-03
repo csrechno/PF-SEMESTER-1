@@ -1,59 +1,39 @@
-#include <iostream>
+ #include <iostream>
 using namespace std;
-int identicalArrays(int matrix[][3] , int RowSize);
+int checkIdenticalRows(int,  int [][3]);
+
 main(){
-    int RowSize;
-    cout<<"Enter Row Size:";
-    cin>>RowSize;
-    cout<<"Enter the elements of array:"<<endl;
-    int matrix[RowSize][3];
-    for(int idx=0; idx<RowSize; idx=idx+1){
-        for(int x=0; x<3; x=x+1){
-                 cout<<"Enter elements at position ["<<idx<<"]["<<x<<"]:";
-                 cin>>matrix[idx][x];
+    int row;
+    cout<<"Enter the number of rows: ";
+    cin>> row;
+    int  matrix[row][3];
+    cout<<"Enter elements of matrix ["<<row <<"][3]"<<endl;
+    for(int i = 0; i < row; i = i + 1){
+        for(int j= 0; j < 3; j = j + 1){
+            cout<<"Enter the element at position ["<<i <<"]["<<j <<"]: ";
+            cin>> matrix[i][j];
         }
     }
-    for(int idx=0; idx<RowSize; idx=idx+1){
-        for(int y=0; y<3; y=y+1){
-            cout<<matrix[idx][y]<<"\t";
-        }
-        cout<<endl;
-    }    
+    int identicalRows = checkIdenticalRows(row, matrix);
+    cout<<"Number of identical rows: "<<identicalRows<<endl;
+
+}
+
+int checkIdenticalRows(int row, int matrix[][3]){
+    int count = 0, j =0;
     
-              if(identicalArrays( matrix , RowSize)){
-                int count=0 ,  sum=0;
-                 for(int idx=0; idx<RowSize; idx=idx+1){ 
-                    for(int x=idx+1; x<RowSize; x=x+1 ){
-
-               if( (matrix[idx][0] == matrix[x][0] ) || (matrix[idx][1]== matrix[x][1]) || (matrix[idx][2]== matrix[x][2])){
-                                 
-                                  count++ ;
-                                  
-               }
-                   
-                            sum =  count + sum;
-                 } 
-                  
-                 cout<<sum;              
-             
-                         
-                 }
-                         
-
-              
-}
-}
-int identicalArrays(int matrix[][3] , int RowSize){
-    bool flag=false;
-    for(int idx=0; idx<RowSize; idx=idx+1){
-         for(int x=0; x<3; x=x+1){
-            if((matrix[idx][x] == matrix[idx+1][x] ) || (matrix[idx][x]== matrix[idx+2][x]) || (matrix[idx][x]== matrix[idx+3][x]) ){
-                   flag=true;
-            } 
-   
+    for(int i = 0; i < row; i = i + 1){
+    bool result = false;
+    for(int j = 0; j < row; j = j + 1){
+        if(j != i){        
+        if((matrix[i][0] == matrix[j][0]) && (matrix[i][1] == matrix[j][1]) && (matrix[i][2] == matrix[j][2])){
+            result = true;
         }
-      
-}  
-return flag;
     }
-      
+    }
+    if(result){
+        count = count + 1;
+    }
+    }
+    return count;
+}
