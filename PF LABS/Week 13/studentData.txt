@@ -1,0 +1,6 @@
+Student Name is : saad
+Student age is : 5
+Student matrc marks are : 56
+Student fsc marks are : 85
+Student ecat are : 4598
+Student percentage is : 98

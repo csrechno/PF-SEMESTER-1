@@ -63,10 +63,7 @@ movePlayerDown();
  
 }
 moveEnemy();
-
-
 moveEnemy2();
-
 moveEnemy3();
 
 Sleep(100);
@@ -186,19 +183,15 @@ PrintEnemy();
 }
 void PrintEnemy2()
 {
-
 gotoxy(ex,ey);
-cout<<"          __________"<<endl;
+cout<<"     " "           "<<endl;
 gotoxy(ex,ey+1);
-cout<<"        /           \\"<<endl;
+cout<<"   (o\\./o)       "<<endl;
 gotoxy(ex,ey+2);
-cout<<"       /             \\"<<endl;
+cout<<"    ( o )          "<<endl;
 gotoxy(ex,ey+3);
-cout<<" _____|_______________|_____"<<endl;
-gotoxy(ex,ey+4);
-cout<<"|     _   _  _  _  _  _   _  |"<<endl;
-gotoxy(ex,ey+5);
-cout<<"'--(_)---(_)---(_)---(_)---(_)'"<<endl;
+cout<<"      ---            "<<endl;
+
 
 
 
